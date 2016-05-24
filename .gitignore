@@ -1,0 +1,10 @@
+lib/
+*.suo
+[aA]pp.config
+[wW]eb.config
+obj/
+bin/
+websrc/
+web*.cmd
+*.user
+.vs/
