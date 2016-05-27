@@ -1,0 +1,66 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:WCmd"
+             >
+
+    <!--xmlns:sa="clr-namespace:Wpf;assembly=Wpf.MetroLib" 
+             xmlns:m="clr-namespace:MahApps.Metro.Controls;assembly=Wpf.MetroLib" 
+             xmlns:da="clr-namespace:Wpf.DataAct;assembly=Wpf.MetroLib"
+             xmlns:drep="clr-namespace:Wpf.DataAct;assembly=Wpf.ReportLib"
+
+    <ResourceDictionary.MergedDictionaries>
+        <sa:MetroSharedResourceDictionary Source="pack://application:,,,/Wpf.MetroLib;component/Wpf.Styles/Controls.xaml" />
+        <sa:MetroSharedResourceDictionary Source="pack://application:,,,/Wpf.MetroLib;component/Wpf.Styles/Fonts.xaml" />
+        <sa:MetroSharedResourceDictionary Source="pack://application:,,,/Wpf.MetroLib;component/Wpf.Styles/Colors.xaml" />
+        <sa:MetroSharedResourceDictionary Source="pack://application:,,,/Wpf.MetroLib;component/Wpf.Styles/Accents/Green.xaml" />
+        <sa:MetroSharedResourceDictionary Source="pack://application:,,,/Wpf.MetroLib;component/Wpf.Styles/Accents/BaseLight.xaml" />
+    </ResourceDictionary.MergedDictionaries>-->
+
+    <Style x:Key="DescriptionHeaderStyle"
+                   TargetType="Label">
+        <Setter Property="FontSize" Value="22" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+    </Style>
+    <!--<Style TargetType="Button" BasedOn="{StaticResource AccentedSquareButtonStyle}">
+        <Setter Property="Background" Value="White" />
+        <Setter Property="Foreground" Value="Black" />
+    </Style>
+    
+     BasedOn="{StaticResource ResourceKey=CheckBox}"
+    -->
+    <Style TargetType="CheckBox">
+        <!--Metro-->
+    </Style>
+    <!-- TargetType="drep:DataTextBoxFS"-->
+    <Style  TargetType="TextBox">
+        <Setter Property="Margin" Value="2 4 0 2" />
+        <Setter Property="Padding" Value="0 4 0 2" />
+        <Setter Property="Foreground" Value="Gray" />
+        <Setter Property="FontSize" Value="14" />
+    </Style>
+
+    <!--<Style TargetType="TabItem"  BasedOn="{StaticResource ResourceKey=MetroCheckBox}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="TabItem">
+                    <Grid Name="Panel">
+                        <ContentPresenter x:Name="ContentSite"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Center"
+                                    ContentSource="Header"
+                                    Margin="10,2"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter TargetName="Panel" Property="Background" Value="LightSkyBlue" />
+                        </Trigger>
+                        <Trigger Property="IsSelected" Value="False">
+                            <Setter TargetName="Panel" Property="Background" Value="White" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>-->
+
+</ResourceDictionary>

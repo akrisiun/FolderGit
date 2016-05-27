@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="WCmd.ConsoleUI"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="600">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!--<ResourceDictionary Source="pack://application:,,,/Wpf.MetroLib;component/Wpf.Styles/Controls.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Wpf.MetroLib;component/Wpf.Styles/Accents/Green.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Wpf.MetroLib;component/Wpf.Styles/Accents/BaseLight.xaml" />-->
+            </ResourceDictionary.MergedDictionaries>
+
+            <!--BasedOn="{StaticResource AccentedSquareButtonStyle}"-->
+            <Style TargetType="Button">
+                <Setter Property="Background" Value="White" />
+                <Setter Property="Foreground" Value="Black" />
+                <Setter Property="Height" Value="29" />
+            </Style>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="34"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+            <Label Margin="5 3 0 0">Directory:</Label>
+            <TextBox x:Name="directory" x:FieldModifier="public" 
+                   MinWidth="300"
+                   Margin="5 4 0 4" />
+            <Label Margin="5 3 0 0">Cmd ></Label>
+            <ComboBox x:Name="cmd" x:FieldModifier="public" 
+                   MinWidth="200" HorizontalAlignment="Stretch" IsEditable="True"
+                   Margin="5 3 0 3"/>
+            <Button x:Name="go"
+                    Margin="5 2 5 2" Width="70">Go</Button>
+        </StackPanel>
+        <TextBox Grid.Row="1" x:Name="content" 
+                 ScrollViewer.VerticalScrollBarVisibility="Visible"
+                 />
+    </Grid>
+</UserControl>

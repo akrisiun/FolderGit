@@ -1,0 +1,132 @@
+﻿<local:MainWindowBase
+        x:Class="WCmd.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+   
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
+        xmlns:local="clr-namespace:WCmd"
+        Title="WCmd" Height="750" Width="825"
+        ResizeMode="CanResizeWithGrip" WindowStyle="ThreeDBorderWindow">
+
+    <!--xmlns:metro="clr-namespace:MahApps.Metro.Controls;assembly=Wpf.MetroLib"
+        xmlns:da="clr-namespace:Wpf.DataAct;assembly=Wpf.MetroLib"
+    -->
+
+
+    <!--Window.Resources-->
+    <local:MainWindowBase.Resources>
+
+        <ResourceDictionary>
+            <!--    
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/Wpf.MetroLib;component/Wpf.Styles/Controls.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Wpf.MetroLib;component/Wpf.Styles/Fonts.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Wpf.MetroLib;component/Wpf.Styles/Colors.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Wpf.MetroLib;component/Wpf.Styles/Accents/Green.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Wpf.MetroLib;component/Wpf.Styles/Accents/BaseLight.xaml" />
+            </ResourceDictionary.MergedDictionaries> -->
+
+            <!--<da:ChangedConverter x:Key="ChangedConverter"/>
+            -->
+
+            <Style x:Key="cellChanged" TargetType="{x:Type DataGridCell}">
+                <Style.Triggers>
+                    <DataTrigger Value="True"
+                        Binding="{Binding Changed, UpdateSourceTrigger=PropertyChanged}">
+                        <Setter Property="FontWeight" Value="Bold" />
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+
+            <!--DataType="{x:Type da:DataTabItem}">-->
+            <DataTemplate x:Key="HomeHeaderTemplate" >
+                <Border Background="Black" BorderBrush="Black" Margin="0 0 0 0" Padding="0 0 0 0" 
+                        VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                    <TextBlock Padding="13 3 13 5" Foreground="White" FontSize="14" Text="HOME" />
+                    <!--Text="{Binding Header}"-->
+                </Border>
+            </DataTemplate>
+
+            <DataTemplate x:Key="homeContent">
+                <ContentControl Content="{Binding Content}" />
+            </DataTemplate>
+
+            <Style x:Key="TabItemHome" TargetType="TabItem">
+                <Setter Property="HeaderTemplate" Value="{StaticResource HomeHeaderTemplate}" />
+                <!--<Setter Property="ContentTemplate" Value="{StaticResource homeContent}" />-->
+                <Setter Property="BorderThickness" Value="0" />
+                <!--<ContentPresenter ContentSource="Content"/>-->
+            </Style>
+
+            <!--<Style x:Key="TabControl" TargetType="da:DataTabControl">-->
+            <Style x:Key="TabControl" TargetType="TabControl">
+                <Setter Property="Foreground" Value="{DynamicResource AccentColorBrush}" />
+                <Setter Property="BorderThickness" Value="2 2 2 2" />
+                <Setter Property="BorderBrush"  Value="{DynamicResource AccentColorBrush}" />
+            </Style>
+            <!--TargetType="metro:MetroTabItem"
+             BasedOn="{StaticResource TabItem}"
+            -->
+            <Style x:Key="TabItem" TargetType="TabItem" >
+                <Setter Property="Foreground" Value="{DynamicResource AccentColorBrush}" />
+                <Setter Property="BorderThickness" Value="0 2 2 0" />
+            </Style>
+        </ResourceDictionary>
+    </local:MainWindowBase.Resources>
+
+    <!--metro:Metro-->
+    <ContentControl VerticalAlignment="Stretch" HorizontalAlignment="Stretch" 
+        x:Name="content" Visibility="Visible">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="400" />
+            </Grid.ColumnDefinitions>
+
+            <!--da:Panel-->
+            <Grid x:Name="userPanel"
+                HorizontalAlignment="Right" VerticalAlignment="Top"
+                Grid.Column="1" Margin="0 2 110 2"
+                Height="28" MinWidth="180">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="70" />
+                </Grid.ColumnDefinitions>
+            </Grid>
+
+            <!--da:Data-->
+            <TabControl Grid.ColumnSpan="2"
+                x:Name="frame"
+                Style="{StaticResource ResourceKey=TabControl}" Margin="2 10 2 2">
+
+                <!--da:Data
+                IsFirst="False" 
+                -->
+
+                <!--<TabItem
+                    x:Name="pageHome"  
+                    Style="{StaticResource ResourceKey=TabItemHome}"
+                    Header="HOME2">
+                    <TabItem.Content>
+                        <StackPanel Margin="5 5 5 5">
+                            <TextBlock>
+                                <LineBreak />
+                                 to be continued.
+                            </TextBlock>
+                        </StackPanel>
+                    </TabItem.Content>
+                </TabItem>
+                -->
+
+                <!--da:Data-->
+                <TabItem x:Name="pageConsole" x:FieldModifier="public"
+                                Style="{StaticResource TabItem}" 
+                                Header="Console1">
+                    <local:ConsoleUI x:Name="contentConsole" x:FieldModifier="public"
+                    />
+                </TabItem>
+            </TabControl>
+        </Grid>
+    </ContentControl>
+    <!--</ContentControl>-->
+</local:MainWindowBase>
