@@ -13,14 +13,14 @@ using Folder;
 using Application = System.Windows.Application;
 using System.Runtime.InteropServices;
 
-namespace Folder
+namespace FolderGit
 {
     public class Startup : IComponent, IDisposable
     {
         static Startup()
         {
-            if (CsApp.Instance == null)
-                CsApp.StartupMode = true;
+            if (GitApp.Instance == null)
+                GitApp.StartupMode = true;
             Instance = new Startup();
         }
 
@@ -40,38 +40,27 @@ namespace Folder
         public static Startup Load() { return Instance; }
         //public FoxApplication App { get; set; }
 
-        protected CsApp appCur;
+        protected GitApp appCur;
 
         [STAThread]
         public void Main() // FoxApplication app = null, bool lRun = false)
         {
-            //this.App = app;
-            Dll = "/Folder";
+            Dll = "/FolderGit";
 
-            appCur = Application.Current as CsApp ?? Folder.CsApp.Instance;
+            appCur = Application.Current as GitApp ?? GitApp.Instance;
             try
             {
-                if (appCur == null)
-                    appCur = Folder.CsApp.Ref();
-
+                //if (appCur == null)
+                //    appCur = Folder.GitApp.Ref();
                 appCur.ShutdownMode = ShutdownMode.OnExplicitShutdown;
             }
             catch (Exception) { }
 
             var mainWnd = appCur.Window;
-
             if (mainWnd == null)
-                mainWnd = new Folder.FolderWindow();
+                mainWnd = new FolderWindowGit();
 
-            WindowLoad(mainWnd); //, app, lRun);
-        }
-
-        public void WindowLoad(FolderWindow mainWnd) // , FoxApplication app, bool lRun = false)
-        {
-            string dir = Environment.CurrentDirectory;
-
-            //if (lRun)
-            //    appCur.Run();
+            CsApp.FolderWindow = mainWnd;
         }
     }
 }

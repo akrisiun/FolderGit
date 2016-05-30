@@ -12,12 +12,12 @@ using Folder.Native;
 using MultiSelect;
 using Folder;
 using Folder.FS;
-using Folder.Visual;
+using FolderGit.Visual;
 using System.Windows.Forms.Integration;
 
-namespace Folder
+namespace FolderGit
 {
-    public partial class FolderWindow : Window, IFolderWindow
+    public partial class FolderWindowGit : Window, IFolderWindow
     {
         public string FileName { get; set; }
         public Forms.TextBox txtPath { get; set; }
@@ -31,21 +31,29 @@ namespace Folder
         Button IFolderWindow.buttonProj { get { return this.buttonProj; } }
         MultiSelectTreeView IFolderWindow.tree { get { return treeObj; } }
 
-        public FolderWindow()
+        public FolderWindowGit()
         {
             Uri iconUri = new Uri("pack://application:,,,/pjx.ico", UriKind.RelativeOrAbsolute);
             Icon = BitmapFrame.Create(iconUri);
 
             if (Startup.Dll == null)
-                Startup.Dll = "Folder";
+                Startup.Dll = "FolderGit";
 
             FileName = string.Empty;
             if (!_contentLoaded)
             {
                 _contentLoaded = true;
-                System.Uri resourceLocater = new System.Uri(Startup.Dll + ";component/visual/folderwindow.xaml", System.UriKind.Relative);
+                System.Uri resourceLocater = new System.Uri(Startup.Dll + ";component/visual/folderwindowgit.xaml", System.UriKind.Relative);
                 System.Windows.Application.LoadComponent(this, resourceLocater);
             }
+        }
+
+        public override void OnApplyTemplate()
+        {
+ 	        base.OnApplyTemplate();
+
+            if (treeObj != null)
+                return;
 
             treeObj = this.tree;
             PostLoad();

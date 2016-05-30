@@ -1,4 +1,5 @@
 ﻿using Folder.FS;
+using Folder.Visual;
 using MultiSelect;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 
-namespace Folder.Visual
+namespace FolderGit.Visual
 {
     public static class TreeViewDrag
     {
@@ -118,7 +119,7 @@ namespace Folder.Visual
 
                 // File/Folder drop
                 string directory = Path.GetDirectoryName(firstFile);
-                var w = CsApp.MainWindow;
+                var w = GitApp.MainWindow;
 
                 Directory.SetCurrentDirectory(directory);
                 w.txtPath.Text = directory;

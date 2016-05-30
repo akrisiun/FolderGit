@@ -7,33 +7,33 @@ using System.Windows.Forms.Integration;
 using System.Threading;
 using System.Windows.Media.Imaging;
 
-namespace Folder
+namespace FolderGit
 {
     /// <summary>
     /// Interaction logic for CsApp.xaml
     /// </summary>
-    public partial class CsApp : Application
+    public partial class GitApp : Application
     {
-        static CsApp() { } // debugger entry
+        static GitApp() { } // debugger entry
 
-        static CsApp startRef;
-        public static CsApp Instance
+        static GitApp startRef;
+        public static GitApp Instance
         {
             [DebuggerStepThrough]
-            get { return startRef ?? Application.Current as CsApp; }
+            get { return startRef ?? Application.Current as GitApp; }
             set { startRef = value; }
         }
 
-        public static new FolderWindow MainWindow { get { return CsApp.Current.MainWindow as FolderWindow; } }
-        public FolderWindow Window { get; set; }
+        public static new FolderWindowGit MainWindow { get { return GitApp.Current.MainWindow as FolderWindowGit; } }
+        public FolderWindowGit Window { get; set; }
 
-        public static CsApp Ref()
+        public static GitApp Ref()
         {
-            return Instance ?? new CsApp();
+            return Instance ?? new GitApp();
         }
 
         public static bool StartupMode = false;
-        public CsApp()
+        public GitApp()
         {
             startRef = this;
             if (!StartupMode)
@@ -49,16 +49,20 @@ namespace Folder
 
         void App_StartupLoad(object sender, StartupEventArgs e)
         {
-            (this as Application).MainWindow = new FolderWindow();
+            (this as Application).MainWindow = new FolderWindowGit();
 
+            Folder.CsApp.FolderWindow = MainWindow;
             MainWindow.Show();
         }
 
         void App_Startup(object sender, StartupEventArgs e)
         {
-            JumpList jumpList1 = JumpList.GetJumpList(CsApp.Current);
+            JumpList jumpList1 = JumpList.GetJumpList(GitApp.Current);
 
-            var window = new FolderWindow();   // NoBorder 
+            var window = new FolderWindowGit();   // NoBorder 
+
+            Folder.CsApp.FolderWindow = window;
+
             window.AllowsTransparency = false;
             window.Show();
         }

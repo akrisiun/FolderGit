@@ -5,7 +5,7 @@ using System.Text;
 using System.Windows;
 using Folder;
 
-namespace Folder
+namespace FolderGit
 {
     public struct VfpFileInfo
     {

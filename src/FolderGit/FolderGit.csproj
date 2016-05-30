@@ -60,7 +60,7 @@
     <ApplicationIcon>pjx.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>Folder.CsApp</StartupObject>
+    <StartupObject>FolderGit.GitApp</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
@@ -90,25 +90,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="CsApp.xaml">
+    <ApplicationDefinition Include="GitApp.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Startup.cs" />
-    <Compile Include="Visual\FolderWindow.xaml.cs">
-      <DependentUpon>FolderWindow.xaml</DependentUpon>
+    <Compile Include="Visual\FolderWindowGit.xaml.cs">
+      <DependentUpon>FolderWindowGit.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Visual\IconItem.cs" />
     <Compile Include="Visual\TreeViewDrag.cs" />
     <Compile Include="Visual\TextDrop.cs" />
     <Compile Include="Visual\TextRead.cs" />
     <Compile Include="Visual\TreeNode.cs" />
-    <Page Include="Visual\FolderWindow.xaml">
+    <Page Include="Visual\FolderWindowGit.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="CsApp.xaml.cs">
-      <DependentUpon>CsApp.xaml</DependentUpon>
+    <Compile Include="GitApp.xaml.cs">
+      <DependentUpon>GitApp.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

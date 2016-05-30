@@ -1,10 +1,11 @@
 ﻿using Folder.FS;
+using Folder.Visual;
 using MultiSelect;
 using System;
 using System.IO;
 using System.Windows;
 
-namespace Folder.Visual
+namespace FolderGit.Visual
 {
     class TreeNode
     {
@@ -16,7 +17,7 @@ namespace Folder.Visual
 
             if (node != null && Directory.Exists(node.Path))
             {
-                (w as FolderWindow).txtFind.Text = node.Path;
+                (w as FolderWindowGit).txtFind.Text = node.Path;
                 FolderTree.LoadSubDir(w, item, node.Path);
             }
         } 
